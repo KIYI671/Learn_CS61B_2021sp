@@ -110,3 +110,10 @@ skeleton 2021 的 Collatz.java 已有代码，运行后结果为(5，16，32，6
 如果顺利可以看到如下图片
 
 ![lab 1 得分](./pic/score.png)
+
+# 其他
+
+## Github Desktop 如何添加其他文件提交到github上
+不知道是否因为之前设置过Git，使用IntelliJ时可以在左边项目栏中右键要提交的文件——Git——添加
+
+此时便可以在Github Desktop 中看到对应文件
