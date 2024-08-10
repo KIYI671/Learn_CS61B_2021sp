@@ -1,4 +1,23 @@
-
+<!-- TOC -->
+* [前言](#前言)
+  * [学习顺序](#学习顺序)
+  * [1、HW0 —— Basic Java Programs](#1hw0--basic-java-programs)
+  * [2、Discussion 1 —— Intro to Java](#2discussion-1--intro-to-java)
+  * [3、Lecture 1 or Reading 1.1](#3lecture-1-or-reading-11-)
+  * [★4、Lab 1 Setup —— Setup: Setting Up Your Computer](#4lab-1-setup--setup--setting-up-your-computer)
+    * [A. Installing a Text Editor](#a-installing-a-text-editor)
+    * [B. Configure Your Computer](#b-configure-your-computer)
+      * [A. Install Java](#a-install-java)
+      * [B. Install Git](#b-install-git)
+      * [C. Install Windows Terminal](#c-install-windows-terminal)
+      * [E. Install IntelliJ 与 F. Installing the IntelliJ CS 61B Plugins](#e-install-intellij-与-f-installing-the-intellij-cs-61b-plugins)
+  * [★5、Lab 1 —— IntelliJ, Java, git](#5lab-1--intellij-java-git)
+    * [A. Getting the Starter Files 与 E. Pushing Your Work to GitHub](#a-getting-the-starter-files-与-e-pushing-your-work-to-github)
+    * [B. Running Code in IntelliJ](#b-running-code-in-intellij)
+    * [D. Programming Exercise](#d-programming-exercise)
+    * [E. Pushing Your Work to GitHub](#e-pushing-your-work-to-github)
+    * [F. Submitting Lab 1](#f-submitting-lab-1)
+<!-- TOC -->
 
 # 前言
 目前（2024年8月）已知的有Gradescope（自动评分器）的CS61B版本有14版、18版、21版，其中14和18版已经有点久远，所以我选择学习的CS61B版本是21版的课程。
