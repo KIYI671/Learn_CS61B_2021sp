@@ -2,10 +2,12 @@ package deque;
 
 import org.junit.Test;
 
+import java.util.Comparator;
+
 import static org.junit.Assert.*;
 
 
-public class ArrayDequeTest {
+public class MaxArrayDequeTest {
 
 
     @Test
@@ -15,7 +17,7 @@ public class ArrayDequeTest {
      * && is the "and" operation. */
     public void addIsEmptySizeTest() {
 
-        ArrayDeque<String> lld1 = new ArrayDeque<String>();
+        MaxArrayDeque<String> lld1 = new MaxArrayDeque<String>();
 
         assertTrue("A newly initialized LLDeque should be empty", lld1.isEmpty());
         lld1.addFirst("front");
@@ -40,7 +42,7 @@ public class ArrayDequeTest {
     /** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
     public void addRemoveTest() {
 
-        ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+        MaxArrayDeque<Integer> lld1 = new MaxArrayDeque<Integer>();
         // should be empty
         assertTrue("lld1 should be empty upon initialization", lld1.isEmpty());
 
@@ -58,7 +60,7 @@ public class ArrayDequeTest {
     /* Tests removing from an empty deque */
     public void removeEmptyTest() {
 
-        ArrayDeque<Integer> lld1 = new ArrayDeque<>();
+        MaxArrayDeque<Integer> lld1 = new MaxArrayDeque<>();
         lld1.addFirst(3);
 
         lld1.removeLast();
@@ -76,29 +78,29 @@ public class ArrayDequeTest {
     }
 
     @Test
-    /* Check if you can create ArrayDeques with different parameterized types*/
+    /* Check if you can create MaxArrayDeques with different parameterized types*/
     public void multipleParamTest() {
 
 
-        ArrayDeque<String> lld1 = new ArrayDeque<String>();
-        ArrayDeque<Double> lld2 = new ArrayDeque<Double>();
-        ArrayDeque<Boolean> lld3 = new ArrayDeque<Boolean>();
+        MaxArrayDeque<String> lld1 = new MaxArrayDeque<String>();
+        MaxArrayDeque<Double> lld2 = new MaxArrayDeque<Double>();
+        MaxArrayDeque<Boolean> lld3 = new MaxArrayDeque<Boolean>();
 
         lld1.addFirst("string");
         lld2.addFirst(3.14159);
         lld3.addFirst(true);
 
-        String s = lld1.removeFirst();
-        double d = lld2.removeFirst();
-        boolean b = lld3.removeFirst();
+        String s = (String) lld1.removeFirst();
+        double d = (double) lld2.removeFirst();
+        boolean b = (boolean) lld3.removeFirst();
 
     }
 
     @Test
-    /* check if null is return when removing from an empty ArrayDeque. */
+    /* check if null is return when removing from an empty MaxArrayDeque. */
     public void emptyNullReturnTest() {
 
-        ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+        MaxArrayDeque<Integer> lld1 = new MaxArrayDeque<Integer>();
 
         boolean passed1 = false;
         boolean passed2 = false;
@@ -112,17 +114,17 @@ public class ArrayDequeTest {
     /* Add large number of elements to deque; check if order is correct. */
     public void bigLLDequeTest() {
 
-        ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+        MaxArrayDeque<Integer> lld1 = new MaxArrayDeque<Integer>();
         for (int i = 0; i < 1000000; i++) {
             lld1.addLast(i);
         }
 
         for (double i = 0; i < 500000; i++) {
-            assertEquals("Should have the same value", i, (double) lld1.removeFirst(), 0.0);
+            assertEquals("Should have the same value", i, (double)((int) lld1.removeFirst()), 0.0);
         }
 
         for (double i = 999999; i > 500000; i--) {
-            assertEquals("Should have the same value", i, (double) lld1.removeLast(), 0.0);
+            assertEquals("Should have the same value", i, (double)((int) lld1.removeLast()), 0.0);
         }
 
 
@@ -132,17 +134,17 @@ public class ArrayDequeTest {
     /* Add large number of elements to deque; check if order is correct. */
     public void bigLLDequeTest2() {
 
-        ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+        MaxArrayDeque<Integer> lld1 = new MaxArrayDeque<Integer>();
         for (int i = 0; i < 100; i++) {
             lld1.addLast(i);
         }
 
         for (double i = 0; i < 50; i++) {
-            assertEquals("Should have the same value", i, (double) lld1.removeFirst(), 0.0);
+            assertEquals("Should have the same value", i, (double)((int) lld1.removeFirst()), 0.0);
         }
 
         for (double i = 99; i > 50; i--) {
-            assertEquals("Should have the same value", i, (double) lld1.removeLast(), 0.0);
+            assertEquals("Should have the same value", i, (double)((int) lld1.removeLast()), 0.0);
         }
 
 
@@ -152,7 +154,7 @@ public class ArrayDequeTest {
     /* 测试列表的格式化打印. */
     public void printDequeTest() {
 
-        ArrayDeque<Integer> lld = new ArrayDeque<Integer>();
+        MaxArrayDeque<Integer> lld = new MaxArrayDeque<Integer>();
         for (int i = 0; i < 10; i++) {
             lld.addLast(i);
         }
@@ -165,7 +167,7 @@ public class ArrayDequeTest {
     /* 测试迭代器. */
     public void iteratorPrintDequeTest() {
 
-        ArrayDeque<Integer> lld = new ArrayDeque<Integer>();
+        MaxArrayDeque<Integer> lld = new MaxArrayDeque<Integer>();
         for (int i = 0; i < 10; i++) {
             lld.addLast(i);
         }
@@ -182,8 +184,8 @@ public class ArrayDequeTest {
     /* 测试equals. */
     public void equalDequeTest() {
 
-        ArrayDeque<Integer> lld = new ArrayDeque<Integer>();
-        ArrayDeque<Integer> lld2 = new ArrayDeque<Integer>();
+        MaxArrayDeque<Integer> lld = new MaxArrayDeque<Integer>();
+        MaxArrayDeque<Integer> lld2 = new MaxArrayDeque<Integer>();
         for (int i = 0; i < 10; i++) {
             lld.addLast(i);
             lld2.addLast(i);
@@ -191,5 +193,18 @@ public class ArrayDequeTest {
         assertEquals(true,lld.equals(lld2));
         lld2.addLast(10);
         assertEquals(false,lld.equals(lld2));
+    }
+
+    @Test
+    /* 测试equals. */
+    public void iteratorDequeTest() {
+        MaxArrayDeque<Double> lld = new MaxArrayDeque<Double>();
+
+        for (double i = 0; i < 10; i++) {
+            lld.addLast(i);
+        }
+        Comparator c = (o1, o2) -> 0;
+        Iterator i = lld.iterator();
+        System.out.println(lld.max(c));
     }
 }

@@ -1,6 +1,7 @@
 package deque;
 
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 
@@ -128,7 +129,7 @@ public class LinkedListDequeTest {
     }
 
     @Test
-    /* Add large number of elements to deque; check if order is correct. */
+    /* 测试列表的格式化打印. */
     public void printDequeTest() {
 
         LinkedListDeque<Integer> lld = new LinkedListDeque<Integer>();
@@ -139,5 +140,37 @@ public class LinkedListDequeTest {
         assertEquals(10,lld.size());
         assertEquals(5,(int)lld.get(5));
         assertEquals(5,(int)lld.getRecursive(5));
+    }
+
+    @Test
+    /* 测试迭代器. */
+    public void iteratorPrintDequeTest() {
+
+        LinkedListDeque<Integer> lld = new LinkedListDeque<Integer>();
+        for (int i = 0; i < 10; i++) {
+            lld.addLast(i);
+        }
+        Iterator<Integer> illd = lld.iterator();
+        int j =0;
+        while(illd.hasNext()){
+            int k = illd.next();
+            assertEquals(j,k);
+            j++;
+        }
+    }
+
+    @Test
+    /* 测试equals. */
+    public void equalDequeTest() {
+
+        LinkedListDeque<Integer> lld = new LinkedListDeque<Integer>();
+        LinkedListDeque<Integer> lld2 = new LinkedListDeque<Integer>();
+        for (int i = 0; i < 10; i++) {
+            lld.addLast(i);
+            lld2.addLast(i);
+        }
+        assertEquals(true,lld.equals(lld2));
+        lld2.addLast(10);
+        assertEquals(false,lld.equals(lld2));
     }
 }
