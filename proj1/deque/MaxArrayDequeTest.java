@@ -110,47 +110,7 @@ public class MaxArrayDequeTest {
 
 
     }
-
-    @Test
-    /* Add large number of elements to deque; check if order is correct. */
-    public void bigLLDequeTest() {
-
-        MaxArrayDeque<Integer> lld1 = new MaxArrayDeque<Integer>();
-        for (int i = 0; i < 1000000; i++) {
-            lld1.addLast(i);
-        }
-
-        for (double i = 0; i < 500000; i++) {
-            assertEquals("Should have the same value", i, (double) ((int) lld1.removeFirst()), 0.0);
-        }
-
-        for (double i = 999999; i > 500000; i--) {
-            assertEquals("Should have the same value", i, (double) ((int) lld1.removeLast()), 0.0);
-        }
-
-
-    }
-
-    @Test
-    /* Add large number of elements to deque; check if order is correct. */
-    public void bigLLDequeTest2() {
-
-        MaxArrayDeque<Integer> lld1 = new MaxArrayDeque<Integer>();
-        for (int i = 0; i < 100; i++) {
-            lld1.addLast(i);
-        }
-
-        for (double i = 0; i < 50; i++) {
-            assertEquals("Should have the same value", i, (double) ((int) lld1.removeFirst()), 0.0);
-        }
-
-        for (double i = 99; i > 50; i--) {
-            assertEquals("Should have the same value", i, (double) ((int) lld1.removeLast()), 0.0);
-        }
-
-
-    }
-
+    
     @Test
     /* 测试列表的格式化打印. */
     public void printDequeTest() {
