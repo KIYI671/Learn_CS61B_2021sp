@@ -3,6 +3,7 @@ package deque;
 import org.junit.Test;
 
 import java.util.Comparator;
+import java.util.Iterator;
 
 import static org.junit.Assert.*;
 
@@ -120,11 +121,11 @@ public class MaxArrayDequeTest {
         }
 
         for (double i = 0; i < 500000; i++) {
-            assertEquals("Should have the same value", i, (double)((int) lld1.removeFirst()), 0.0);
+            assertEquals("Should have the same value", i, (double) ((int) lld1.removeFirst()), 0.0);
         }
 
         for (double i = 999999; i > 500000; i--) {
-            assertEquals("Should have the same value", i, (double)((int) lld1.removeLast()), 0.0);
+            assertEquals("Should have the same value", i, (double) ((int) lld1.removeLast()), 0.0);
         }
 
 
@@ -140,11 +141,11 @@ public class MaxArrayDequeTest {
         }
 
         for (double i = 0; i < 50; i++) {
-            assertEquals("Should have the same value", i, (double)((int) lld1.removeFirst()), 0.0);
+            assertEquals("Should have the same value", i, (double) ((int) lld1.removeFirst()), 0.0);
         }
 
         for (double i = 99; i > 50; i--) {
-            assertEquals("Should have the same value", i, (double)((int) lld1.removeLast()), 0.0);
+            assertEquals("Should have the same value", i, (double) ((int) lld1.removeLast()), 0.0);
         }
 
 
@@ -172,10 +173,10 @@ public class MaxArrayDequeTest {
             lld.addLast(i);
         }
         Iterator<Integer> illd = lld.iterator();
-        int j =0;
-        while(illd.hasNext()){
+        int j = 0;
+        while (illd.hasNext()) {
             int k = illd.next();
-            assertEquals(j,k);
+            assertEquals(j, k);
             j++;
         }
     }
@@ -190,9 +191,9 @@ public class MaxArrayDequeTest {
             lld.addLast(i);
             lld2.addLast(i);
         }
-        assertEquals(true,lld.equals(lld2));
+        assertEquals(true, lld.equals(lld2));
         lld2.addLast(10);
-        assertEquals(false,lld.equals(lld2));
+        assertEquals(false, lld.equals(lld2));
     }
 
     @Test

@@ -2,10 +2,14 @@ package deque;
 
 import org.junit.Test;
 
+import java.util.Iterator;
+
 import static org.junit.Assert.*;
 
 
-/** Performs some basic linked list tests. */
+/**
+ * Performs some basic linked list tests.
+ */
 public class LinkedListDequeTest {
 
     @Test
@@ -17,22 +21,22 @@ public class LinkedListDequeTest {
 
         LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
 
-		assertTrue("A newly initialized LLDeque should be empty", lld1.isEmpty());
-		lld1.addFirst("front");
+        assertTrue("A newly initialized LLDeque should be empty", lld1.isEmpty());
+        lld1.addFirst("front");
 
-		// The && operator is the same as "and" in Python.
-		// It's a binary operator that returns true if both arguments true, and false otherwise.
+        // The && operator is the same as "and" in Python.
+        // It's a binary operator that returns true if both arguments true, and false otherwise.
         assertEquals(1, lld1.size());
         assertFalse("lld1 should now contain 1 item", lld1.isEmpty());
 
-		lld1.addLast("middle");
-		assertEquals(2, lld1.size());
+        lld1.addLast("middle");
+        assertEquals(2, lld1.size());
 
-		lld1.addLast("back");
-		assertEquals(3, lld1.size());
+        lld1.addLast("back");
+        assertEquals(3, lld1.size());
 
-		System.out.println("Printing out deque: ");
-		lld1.printDeque();
+        System.out.println("Printing out deque: ");
+        lld1.printDeque();
 
     }
 
@@ -41,16 +45,16 @@ public class LinkedListDequeTest {
     public void addRemoveTest() {
 
         LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
-		// should be empty
-		assertTrue("lld1 should be empty upon initialization", lld1.isEmpty());
+        // should be empty
+        assertTrue("lld1 should be empty upon initialization", lld1.isEmpty());
 
-		lld1.addFirst(10);
-		// should not be empty
-		assertFalse("lld1 should contain 1 item", lld1.isEmpty());
+        lld1.addFirst(10);
+        // should not be empty
+        assertFalse("lld1 should contain 1 item", lld1.isEmpty());
 
-		lld1.removeFirst();
-		// should be empty
-		assertTrue("lld1 should be empty after removal", lld1.isEmpty());
+        lld1.removeFirst();
+        // should be empty
+        assertTrue("lld1 should be empty after removal", lld1.isEmpty());
 
     }
 
@@ -80,8 +84,8 @@ public class LinkedListDequeTest {
     public void multipleParamTest() {
 
 
-        LinkedListDeque<String>  lld1 = new LinkedListDeque<String>();
-        LinkedListDeque<Double>  lld2 = new LinkedListDeque<Double>();
+        LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
+        LinkedListDeque<Double> lld2 = new LinkedListDeque<Double>();
         LinkedListDeque<Boolean> lld3 = new LinkedListDeque<Boolean>();
 
         lld1.addFirst("string");
@@ -137,9 +141,9 @@ public class LinkedListDequeTest {
             lld.addLast(i);
         }
         lld.printDeque();
-        assertEquals(10,lld.size());
-        assertEquals(5,(int)lld.get(5));
-        assertEquals(5,(int)lld.getRecursive(5));
+        assertEquals(10, lld.size());
+        assertEquals(5, (int) lld.get(5));
+        assertEquals(5, (int) lld.getRecursive(5));
     }
 
     @Test
@@ -151,10 +155,10 @@ public class LinkedListDequeTest {
             lld.addLast(i);
         }
         Iterator<Integer> illd = lld.iterator();
-        int j =0;
-        while(illd.hasNext()){
+        int j = 0;
+        while (illd.hasNext()) {
             int k = illd.next();
-            assertEquals(j,k);
+            assertEquals(j, k);
             j++;
         }
     }
@@ -169,8 +173,8 @@ public class LinkedListDequeTest {
             lld.addLast(i);
             lld2.addLast(i);
         }
-        assertEquals(true,lld.equals(lld2));
+        assertEquals(true, lld.equals(lld2));
         lld2.addLast(10);
-        assertEquals(false,lld.equals(lld2));
+        assertEquals(false, lld.equals(lld2));
     }
 }

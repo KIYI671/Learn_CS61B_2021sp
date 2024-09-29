@@ -2,6 +2,8 @@ package deque;
 
 import org.junit.Test;
 
+import java.util.Iterator;
+
 import static org.junit.Assert.*;
 
 
@@ -170,10 +172,10 @@ public class ArrayDequeTest {
             lld.addLast(i);
         }
         Iterator<Integer> illd = lld.iterator();
-        int j =0;
-        while(illd.hasNext()){
+        int j = 0;
+        while (illd.hasNext()) {
             int k = illd.next();
-            assertEquals(j,k);
+            assertEquals(j, k);
             j++;
         }
     }
@@ -188,8 +190,8 @@ public class ArrayDequeTest {
             lld.addLast(i);
             lld2.addLast(i);
         }
-        assertEquals(true,lld.equals(lld2));
+        assertEquals(true, lld.equals(lld2));
         lld2.addLast(10);
-        assertEquals(false,lld.equals(lld2));
+        assertEquals(false, lld.equals(lld2));
     }
 }
