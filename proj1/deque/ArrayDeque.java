@@ -7,9 +7,11 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
     private int size;
     private int nextFirst;
     private int nextLast;
+    private final int initSize = 8;
+    private final int resetSize = 16;
 
     public ArrayDeque() {
-        items = (T[]) new Object[8];
+        items = (T[]) new Object[initSize];
         size = 0;
         nextFirst = items.length / 2;
         nextLast = nextFirst + 1;
@@ -65,8 +67,8 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
         if (size <= 0) {
             return null;
         }
-        if (items.length >= 16 && size <= items.length / 4) {
-            resize(items.length / 4);
+        if (items.length >= resetSize && size <= items.length / 4) {
+            resize(items.length / 2);
         }
         if (nextFirst == items.length - 1) {
             nextFirst = 0;
@@ -82,8 +84,8 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
         if (size <= 0) {
             return null;
         }
-        if (items.length >= 16 && size <= items.length / 4) {
-            resize(items.length / 4);
+        if (items.length >= resetSize && size <= items.length / 4) {
+            resize(items.length / 2);
         }
         if (nextLast == 0) {
             nextLast = items.length - 1;
@@ -129,7 +131,7 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
     private class ArrayDequeIterator implements Iterator<T> {
         private int wizPos;
 
-        public ArrayDequeIterator() {
+        ArrayDequeIterator() {
             wizPos = 0;
         }
 
@@ -150,9 +152,9 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
         if (this == o) {
             return true;
         }
-        if (o instanceof ArrayDeque && ((ArrayDeque<T>) o).size == this.size) {
+        if (o instanceof Deque && ((Deque<?>) o).size() == this.size) {
             for (int i = 0; i < size; i++) {
-                if (((ArrayDeque<T>) o).get(i) != this.get(i)) {
+                if (((Deque<?>) o).get(i) != this.get(i)) {
                     return false;
                 }
             }

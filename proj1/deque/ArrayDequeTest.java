@@ -194,4 +194,30 @@ public class ArrayDequeTest {
         lld2.addLast(10);
         assertEquals(false, lld.equals(lld2));
     }
+
+    @Test
+    /* 测试equals. */
+    public void ADBasicGetDequeTest() {
+
+        ArrayDeque<Integer> lld = new ArrayDeque<Integer>();
+        lld.addFirst(0);
+        lld.addFirst(1);
+        lld.addFirst(2);
+        lld.addFirst(3);
+        lld.addFirst(4);
+        lld.addLast(5);
+        lld.addLast(6);
+        assertEquals(5, (int) lld.get(5));
+        lld.addLast(8);
+        lld.addLast(9);
+        assertEquals(4, (int) lld.removeFirst());
+        assertEquals(6, (int) lld.get(5));
+        assertEquals(9, (int) lld.removeLast());
+        assertEquals(3, (int) lld.removeFirst());
+        assertEquals(8, (int) lld.removeLast());
+        assertEquals(6, (int) lld.removeLast());
+        assertEquals(2, (int) lld.removeFirst());
+        assertEquals(1, (int) lld.get(0));
+        lld.addLast(18);
+    }
 }
