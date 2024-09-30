@@ -33,7 +33,7 @@ public class GuitarString {
         //       are different from each other. It means you should repeatedly call
         //       Math.random() - 0.5 to generate new random numbers for each array index.
         int bufferSize = buffer.size();
-        ;
+
         for (int i = 0; i < bufferSize; i++) {
             buffer.removeFirst();
             double randomNum = Math.random() - 0.5;
