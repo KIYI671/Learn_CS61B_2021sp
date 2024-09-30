@@ -110,7 +110,7 @@ public class MaxArrayDequeTest {
 
 
     }
-    
+
     @Test
     /* 测试列表的格式化打印. */
     public void printDequeTest() {
@@ -168,4 +168,31 @@ public class MaxArrayDequeTest {
         Iterator i = lld.iterator();
         System.out.println(lld.max(c));
     }
+
+    private class IntegerComparator implements Comparator<Integer> {
+        @Override
+        public int compare(Integer num1, Integer num2) {
+            return num1 - num2;
+        }
+    }
+
+    private class ReverseComparator implements Comparator<Integer> {
+        @Override
+        public int compare(Integer num1, Integer num2) {
+            return num2 - num1;
+        }
+    }
+    @Test
+    /* 测试equals. */
+    public void MaxDequeTest() {
+        MaxArrayDeque<Integer> mad = new MaxArrayDeque<>(new IntegerComparator());
+        mad.addFirst(1);
+        mad.addFirst(4);
+        mad.addFirst(5);
+        mad.addFirst(6);
+        mad.addFirst(3);
+        assertEquals(6,(int) mad.max());
+        assertEquals(1,(int) mad.max(new ReverseComparator()));
+    }
+
 }
